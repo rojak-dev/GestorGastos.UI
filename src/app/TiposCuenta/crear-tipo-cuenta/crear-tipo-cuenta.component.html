@@ -1,0 +1,18 @@
+<h1>Crear Tipo de Cuenta</h1>
+<h5>El tipo de cuenta se refiere a cómo podemos agrupar cuentas. Ejemplos:
+    Préstamos, tarjetas de crédito, etc.
+</h5>
+
+<form (submit)="guardarCambios()" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput [formControl]="form.controls.nombre">
+    </mat-form-field>
+
+    <div>
+        <button mat-flat-button type="submit" (click)="guardarCambios()">Guardar Cambios</button>
+        <a mat-stroked-button routerLink="/">Cancelar</a>
+    </div>
+</form>
+
+

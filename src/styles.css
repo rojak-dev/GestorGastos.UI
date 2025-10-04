@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, Inter, system-ui, -apple-system, "Segoe UI", Arial, "Helvetica Neue", sans-serif; }
+
+body{
+    height: fit-content;
+}
+
+.app-shell { min-height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; }
+.container { width: min(1100px, 92%); margin-inline: auto; padding: 24px 0; }
+.footer { text-align: center; padding: 16px; color: #334155; border-top: 1px solid #e2e8f0; }
+.toolbar .brand { display: inline-flex; align-items: center; gap: .5rem; font-weight: 600; letter-spacing: .2px; }
+.toolbar .spacer { flex: 1 1 auto; }
+.menu button[mat-button] { font-weight: 500; }
+.welcome { border-radius: 16px; }
+.welcome p { margin: .25rem 0 0; color: #334155; }
+
+.contenedor{
+    margin: 0 1rem;
+    width: 100%;
+}

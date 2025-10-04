@@ -1,0 +1,4 @@
+:host { display: contents; }
+.shadow-sm { box-shadow: 0 1px 2px rgba(2,6,23,.06), 0 1px 1px rgba(2,6,23,.04); }
+mat-toolbar.toolbar { padding-inline: clamp(12px, 4vw, 24px); }
+mat-card.welcome { padding: 8px; }
