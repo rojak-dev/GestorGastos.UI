@@ -2,8 +2,9 @@ import { Component, inject } from '@angular/core';
 import { MatButtonModule} from '@angular/material/button';
 import { Router, RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
+import { primeraLetraMayuscula } from '../../compartidos/funciones/validaciones';
 
 @Component({
   selector: 'app-crear-tipo-cuenta',
@@ -16,8 +17,22 @@ export class CrearTipoCuentaComponent {
   private formbuilder = inject(FormBuilder);
 
   form = this.formbuilder.group({
-    nombre: ['']
-  });
+    nombre: ['', {validators: [Validators.required, primeraLetraMayuscula()]}]
+  })
+
+  obtnerErrorCampoNombre(): string{
+    let nombre  = this.form.controls.nombre;
+
+    if(nombre.hasError('required')){
+      return "El campo nombre es requerido";
+    }
+
+    if(nombre.hasError('primeraLetraMayuscula')){
+      return nombre.getError('primeraLetraMayuscula').mensaje;
+    }
+
+    return "";
+  }
 
   guardarCambios(){
     console.log(this.form.value);
