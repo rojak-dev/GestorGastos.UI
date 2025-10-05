@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
 import { primeraLetraMayuscula } from '../../compartidos/funciones/validaciones';
+import { TipoCuentaCreacionDTO } from '../../models/TipoCuenta';
 
 @Component({
   selector: 'app-crear-tipo-cuenta',
@@ -36,5 +37,13 @@ export class CrearTipoCuentaComponent {
 
   guardarCambios(){
     console.log(this.form.value);
+
+    if(!this.form.valid)
+    {
+      return;
+    }
+
+    const tipoCuenta = this.form.value as TipoCuentaCreacionDTO;
+    //this.posteoFormulario.emit(tipoCuenta);
   }
 }
