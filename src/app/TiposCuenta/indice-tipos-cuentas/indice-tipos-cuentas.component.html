@@ -1,0 +1,35 @@
+<h2>Tipos Cuentas</h2>
+
+<button mat-flat-button routerLink="/tipoCuenta/crear">Crear Nuevo</button>
+
+<table mat-table [dataSource]="listadoTipoCuenta" class="mat-elevation-z8 indice-elementos">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.nombre}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="orden">
+        <th mat-header-cell *matHeaderCellDef>Orden</th>
+        <td mat-cell *matCellDef="let elemento">{{elemento.orden}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let elemento">
+            <a routerLink="/tipoCuenta/editar/{{elemento.id}}" mat-flat-button>Editar</a>
+            <button mat-flat-button color="warn">Borrar</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnasAMostrar"></tr>
+
+</table>
+
+<mat-paginator showFirstLastButtons [length]="total" [pageSize]="paginacionDTO.recordsPorPagina" [pageSizeOptions]="[5, 10, 50]" class="mat-elevation-z8"
+(page)="cambiarPagina($event)"></mat-paginator>

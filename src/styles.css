@@ -17,9 +17,33 @@ body{
 .welcome p { margin: .25rem 0 0; color: #334155; }
 
 .contenedor{
-    margin: 0 1rem;
+    margin: 0 2rem;
+    padding: .5rem;
     width: 100%;
+    height: auto;
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h2
+{
+    color: navy;
+}
+
+mat-form-field{
+    width: 100%;
+    max-width: 500px;
+}
+
+.contenedor-botones{
+    margin-top: 1rem;
+}
+
+.indice-elementos{
+    margin-top: 1rem;
+}
+
+.indice-elementos a{
+    margin-right: 1rem;
+}
