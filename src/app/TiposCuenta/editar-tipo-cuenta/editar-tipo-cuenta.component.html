@@ -1,0 +1,8 @@
+<h2>Editar Tipo Cuneta</h2>
+
+@if(tipoCuenta){
+    <app-mostrar-errores [errores]="errores"></app-mostrar-errores>
+    <app-formulario-tipo-cuenta [modelo]="tipoCuenta" (posteoFormulario)="guardarCambios($event)"></app-formulario-tipo-cuenta>
+}@else {
+    <app-cargando></app-cargando>
+}

@@ -1,0 +1,9 @@
+.contenedor-imagenError{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.contenedor-imagenError img{
+    border-radius: .5rem;
+}

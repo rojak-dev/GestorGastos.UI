@@ -1,11 +1,11 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { MatButtonModule} from '@angular/material/button';
 import { Router, RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
 import { primeraLetraMayuscula } from '../../compartidos/funciones/validaciones';
-import { TipoCuentaCreacionDTO } from '../../models/TipoCuenta';
+import { TipoCuentaCreacionDTO, TipoCuentaDTO } from '../../models/TipoCuenta';
 import { TipoCuentaService } from '../../servicios/tipo-cuenta.service';
 import { extraerErrores } from '../../compartidos/funciones/extraerErrores';
 
@@ -15,10 +15,16 @@ import { extraerErrores } from '../../compartidos/funciones/extraerErrores';
   templateUrl: './formulario-tipo-cuenta.component.html',
   styleUrl: './formulario-tipo-cuenta.component.css'
 })
-export class FormularioTipoCuentaComponent {
+export class FormularioTipoCuentaComponent implements OnInit{
+  ngOnInit(): void {
+    if(this.modelo !== undefined)
+    {
+      this.form.patchValue(this.modelo);
+    }
+  }
   private formbuilder = inject(FormBuilder);
   
-
+  @Input() modelo: TipoCuentaDTO | undefined;
   @Output() posteoFormulario = new EventEmitter<TipoCuentaCreacionDTO>();
 
   form = this.formbuilder.group({

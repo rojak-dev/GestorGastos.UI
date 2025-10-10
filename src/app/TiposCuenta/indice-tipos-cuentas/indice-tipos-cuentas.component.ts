@@ -6,10 +6,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule} from '@angular/material/table';
 import { PaginacionDTO } from '../../models/PaginacionDTO';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
   selector: 'app-indice-tipos-cuentas',
-  imports: [RouterLink, MatButtonModule, MatTableModule, MatPaginatorModule],
+  imports: [RouterLink, MatButtonModule, MatTableModule, MatPaginatorModule, SweetAlert2Module],
   templateUrl: './indice-tipos-cuentas.component.html',
   styleUrl: './indice-tipos-cuentas.component.css'
 })
@@ -44,5 +45,13 @@ export class IndiceTiposCuentasComponent {
     this.paginacionDTO.recordsPorPagina = event.pageSize;
 
     this.cargarRegistros();
+  }
+
+  borrar(id: number){
+    this.tipocuentaService.borrar(id).subscribe(() =>{
+      //reseteamos la paginación
+      this.paginacionDTO = {pagina: 1, recordsPorPagina: 10}
+      this.cargarRegistros();
+    });
   }
 }

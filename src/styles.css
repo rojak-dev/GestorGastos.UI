@@ -13,15 +13,19 @@ body{
 .toolbar .brand { display: inline-flex; align-items: center; gap: .5rem; font-weight: 600; letter-spacing: .2px; }
 .toolbar .spacer { flex: 1 1 auto; }
 .menu button[mat-button] { font-weight: 500; }
-.welcome { border-radius: 16px; }
-.welcome p { margin: .25rem 0 0; color: #334155; }
-
-.contenedor{
-    margin: 0 2rem;
-    padding: .5rem;
-    width: 100%;
-    height: auto;
+.welcome {
+    display: flex;
+    flex-direction: column;      /* coloca los elementos uno debajo del otro */
+    justify-content: center;     /* centra verticalmente */
+    align-items: center;         /* centra horizontalmente */
+    border-radius: 16px;
+    height: 500px;
+    background-color: rgb(233, 227, 227);
+    padding: 0.5rem;
+    text-align: center;          /* centra el texto dentro de cada elemento */
+    margin-top: 1rem;
 }
+.welcome p { margin: .25rem 0 0; color: #334155; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

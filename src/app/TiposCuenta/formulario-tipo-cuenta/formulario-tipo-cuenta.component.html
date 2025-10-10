@@ -11,7 +11,7 @@
     </mat-form-field>
 
     <div class="contenedor-botones">
-        <button mat-flat-button type="submit" (click)="guardarCambios()" [disabled]="form.invalid">Guardar Cambios</button>
-        <a mat-stroked-button routerLink="/">Cancelar</a>
+        <button mat-flat-button type="submit" [disabled]="form.invalid" class="primary">Guardar Cambios</button>
+        <a mat-stroked-button class="warn" routerLink="/tipoCuenta">Cancelar</a>
     </div>
 </form>

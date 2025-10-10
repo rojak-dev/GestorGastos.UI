@@ -22,7 +22,19 @@ export class TipoCuentaService {
     return this.http.get<PagedResponse<TipoCuentaDTO>>(this.urlBase, {params: queryParams});
   }
 
+  public obtenerPorId(id: number): Observable<TipoCuentaDTO>{
+    return this.http.get<TipoCuentaDTO>(`${this.urlBase}/${id}`);
+  }
+
+  public actualizar(id: number, tipocuenta: TipoCuentaCreacionDTO){
+    return this.http.put(`${this.urlBase}/${id}`, tipocuenta);
+  }
+
   public crear(tipoCuenta: TipoCuentaCreacionDTO){
     return this.http.post(this.urlBase, tipoCuenta);
+  }
+
+  public borrar(id: number){
+    return this.http.delete(`${this.urlBase}/${id}`);
   }
 }
