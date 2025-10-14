@@ -38,8 +38,8 @@ export class FormularioTipoCuentaComponent implements OnInit{
       return "El campo nombre es requerido";
     }
 
-    if(nombre.hasError('maxlength')){
-      return `El campo nombre no puede tener más de ${nombre.getError("maxlength").requiredLength} caracteres`;
+    if(nombre.hasError('maxLength')){
+      return `El campo nombre no puede tener más de ${nombre.getError("maxLength").requiredLength} caracteres`;
     }
 
     if(nombre.hasError('primeraLetraMayuscula')){

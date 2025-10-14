@@ -19,12 +19,7 @@ import { TipoCuentaService } from '../../servicios/tipo-cuenta.service';
 export class FormularioCuentaComponent implements OnInit {
   ngOnInit(): void {
     if(this.model !== undefined){
-      this.form.patchValue({
-        nombre: this.model.nombre,
-        tipoCuenta: this.model.tipoCuentaId,
-        balance: this.model.balance,
-        descripcion: this.model.descripcion
-      });
+      this.form.patchValue(this.model);
     }
   }
 
@@ -44,7 +39,72 @@ export class FormularioCuentaComponent implements OnInit {
     descripcion: new FormControl<string | null>(null, {validators: [Validators.maxLength(1000)]})
   });
 
+  obtenerErrorCampoNombre(){
+    let campo = this.form.controls.nombre;
+
+    if(campo.hasError('required')){
+      return 'El campo nombre es requerido';
+    }
+
+    if(campo.hasError('maxlength')){
+      return `El campo nombre no puede tener más de ${campo.getError('maxlength').requiredLength} caracteres`;
+    }
+
+    if(campo.hasError('primeraLetraMayuscula')){
+      return 'La priemra letra debe ser mayuscula'
+    }
+
+    return "";
+  }
+
+  obtnerErroresTipoCuenta(){
+    let campo = this.form.controls.tipoCuenta;
+
+    if(campo.hasError('required')){
+      return 'El campo tipo cuenta es requerido';
+    }
+
+    return "";
+  }
+
+  obtenerErroresBalance(){
+    let campo = this.form.controls.balance;
+
+    if(campo.hasError('required')){
+      return 'El campo balance es requerido';
+    }
+
+    if(campo.hasError('max')){
+      return 'el campo solo soporta hasta 9999999999999999.99';
+    }
+
+    if(campo.hasError('pattern')){
+      return 'El campo solo acepta números';
+    }
+
+    return "";
+  }
+
+  obtenerErroresDescripcion(){
+    let campo = this.form.controls.descripcion;
+
+    if(campo.hasError('maxlength')){
+      return `El campo no acepta más de ${campo.getError('maxlength').requiredLength} caracteres`
+    }
+
+    return "";
+  }
+
   cargarCatologo(){
     //this.tipoCeuntaServicio.obtenerTodos().subscribe()
+  }
+
+  guardarCambios(){
+    if(!this.form.valid){
+      return;
+    }
+
+    const cuenta = this.form.value as CuentaCreacionDTO;
+    this.posteoFormulario.emit(cuenta);
   }
 }

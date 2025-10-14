@@ -1,10 +1,12 @@
-<h5></h5>
+<h5>La cuenta se refiere a los distintos balances que tienes:
+    tarjeta de crédito, cuenta de ahorro, préstamo, etc.
+</h5>
 
 <form [formGroup]="form">
     <mat-form-field appearance="outline">
         <mat-label>Nombre</mat-label>
         <input matInput [formControl]="form.controls.nombre" />
-        <mat-error></mat-error>
+        <mat-error>{{obtenerErrorCampoNombre()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -14,19 +16,19 @@
                 <mat-option [value]="tipo">{{tipo.nombre}}</mat-option>
             }
         </mat-select>
-        <mat-error></mat-error>
+        <mat-error>{{obtnerErroresTipoCuenta()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
         <mat-label>Balance</mat-label>
         <input matInput [formControl]="form.controls.balance" type="text" inputmode="decimal" placeholder="0.00" />
-        <mat-error></mat-error>
+        <mat-error>{{obtenerErroresBalance()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
         <mat-label>Descripción</mat-label>
         <textarea matInput [formControl]="form.controls.descripcion" rows="3"></textarea>
-        <mat-error></mat-error>
+        <mat-error>{{obtenerErroresDescripcion()}}</mat-error>
     </mat-form-field>
 
     <div class="contenedor-botones">
