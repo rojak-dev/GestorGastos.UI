@@ -24,7 +24,7 @@
     "@sweetalert2/ngx-sweetalert2": "^14.0.0",
     "moment": "^2.30.1",
     "rxjs": "~7.8.0",
-    "sweetalert2": "^11.26.1",
+    "sweetalert2": "^11.26.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

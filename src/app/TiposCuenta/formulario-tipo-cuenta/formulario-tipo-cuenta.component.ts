@@ -29,7 +29,7 @@ export class FormularioTipoCuentaComponent implements OnInit{
 
   form = this.formbuilder.group({
     nombre: ['', {validators: [Validators.required, primeraLetraMayuscula(), Validators.maxLength(50)]}]
-  })
+  });
 
   obtnerErrorCampoNombre(): string{
     let nombre  = this.form.controls.nombre;

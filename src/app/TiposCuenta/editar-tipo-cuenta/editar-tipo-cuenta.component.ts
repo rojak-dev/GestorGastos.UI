@@ -33,7 +33,7 @@ export class EditarTipoCuentaComponent implements OnInit {
   guardarCambios(tipoCuenta: TipoCuentaCreacionDTO){
     this.tipoCuentaService.actualizar(this.id, tipoCuenta).subscribe({
       next: () =>{
-        this.router.navigate(['/tipoCuenta']);
+        this.router.navigate(['/tipoCuentas']);
       },
       error: err =>{
         const errores = extraerErrores(err);

@@ -25,7 +25,7 @@ export class CrearTipoCuentaComponent {
   {
     this.tipoCuentaService.crear(tipoCuenta).subscribe({
       next: () => {
-        this.router.navigate(['/tipoCuenta']);
+        this.router.navigate(['/tipoCuentas']);
       },
       error: err => {
         const errores = extraerErrores(err);

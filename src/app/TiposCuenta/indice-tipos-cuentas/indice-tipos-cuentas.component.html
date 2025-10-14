@@ -1,6 +1,6 @@
 <h2>Tipos Cuentas</h2>
 
-<button mat-flat-button routerLink="/tipoCuenta/crear">Crear Nuevo</button>
+<button mat-flat-button routerLink="/tipoCuentas/crear">Crear Nuevo</button>
 
 <table mat-table [dataSource]="listadoTipoCuenta" class="mat-elevation-z8 indice-elementos">
     <ng-container matColumnDef="id">
@@ -21,7 +21,7 @@
     <ng-container matColumnDef="acciones">
         <th mat-header-cell *matHeaderCellDef>Acciones</th>
         <td mat-cell *matCellDef="let elemento">
-            <a routerLink="/tipoCuenta/editar/{{elemento.id}}" mat-flat-button>Editar</a>
+            <a routerLink="/tipoCuentas/editar/{{elemento.id}}" mat-flat-button>Editar</a>
             <!--para pedir confirmnacion al usuario instalaremos
                 -sweetAlert: npm i sweetalert2
                 -paquete para usar mas senccillo en angular: npm i @sweetalert2/ngx-sweetalert2 --force
