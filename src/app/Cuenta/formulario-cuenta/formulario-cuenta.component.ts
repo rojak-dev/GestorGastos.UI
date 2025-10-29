@@ -21,6 +21,8 @@ export class FormularioCuentaComponent implements OnInit {
     if(this.model !== undefined){
       this.form.patchValue(this.model);
     }
+
+    this.cargarCatologo();
   }
 
   @Input() model: CuentaDTO | undefined;
@@ -28,7 +30,7 @@ export class FormularioCuentaComponent implements OnInit {
 
   private readonly dosDecimalesRegex = /^\d{1,16}(\.\d{1,2})?$/;
   tipoCeuntaServicio = inject(TipoCuentaService);
-  tiposCuentasList: TipoCuentaDTO[] = [{id: 1, nombre: "cards", orden: 1}, {id: 2, nombre: "efectivo", orden: 1}];
+  tiposCuentasList: TipoCuentaDTO[] = [];
 
 
   private formBuilder = inject(FormBuilder);
@@ -96,7 +98,14 @@ export class FormularioCuentaComponent implements OnInit {
   }
 
   cargarCatologo(){
-    //this.tipoCeuntaServicio.obtenerTodos().subscribe()
+    this.tipoCeuntaServicio.obtenerAllSinPaginar().subscribe({
+      next: (respuesta) => {
+        this.tiposCuentasList = respuesta;
+      },
+      error: (err) => {
+        console.error('Error al obtener los tipos cuenta');
+      }
+    });
   }
 
   guardarCambios(){

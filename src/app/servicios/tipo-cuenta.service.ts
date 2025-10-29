@@ -22,6 +22,10 @@ export class TipoCuentaService {
     return this.http.get<PagedResponse<TipoCuentaDTO>>(this.urlBase, {params: queryParams});
   }
 
+  public obtenerAllSinPaginar(): Observable<TipoCuentaDTO[]>{
+    return this.http.get<TipoCuentaDTO[]>(this.urlBase+"/getAllTiposCuentas");
+  }
+
   public obtenerPorId(id: number): Observable<TipoCuentaDTO>{
     return this.http.get<TipoCuentaDTO>(`${this.urlBase}/${id}`);
   }

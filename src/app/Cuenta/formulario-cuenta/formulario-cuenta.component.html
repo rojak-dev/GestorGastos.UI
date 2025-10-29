@@ -2,7 +2,7 @@
     tarjeta de crédito, cuenta de ahorro, préstamo, etc.
 </h5>
 
-<form [formGroup]="form">
+<form (submit)="guardarCambios()" [formGroup]="form">
     <mat-form-field appearance="outline">
         <mat-label>Nombre</mat-label>
         <input matInput [formControl]="form.controls.nombre" />
@@ -13,7 +13,7 @@
         <mat-label>Tipo Cuenta</mat-label>
         <mat-select [formControl]="form.controls.tipoCuenta">
             @for (tipo of tiposCuentasList; track tipo){
-                <mat-option [value]="tipo">{{tipo.nombre}}</mat-option>
+                <mat-option [value]="tipo.id">{{tipo.nombre}}</mat-option>
             }
         </mat-select>
         <mat-error>{{obtnerErroresTipoCuenta()}}</mat-error>
